@@ -1,0 +1,79 @@
+/*
+Name: Matthew Garner
+Date: 10/9/16
+Assignment: CS290 - HTML/CSS assignment
+*/
+
+/* TABLE BEGIN */
+
+table{
+	border: 1px solid black;
+}
+
+th, td{
+	border: 1px solid black;
+}
+
+table > thead{
+	text-align: center;
+	font-weight: bold;
+	background-color: white;
+	empty-cells: show;
+}
+
+table > tbody{
+	background-color: #90ee90;
+	empty-cells: show;			
+}
+
+table tbody th{
+	font-weight: normal;
+	text-align: center;
+	font-style: italic;
+}
+
+table tbody tr:nth-of-type(2n){
+	background-color: #add8e6;
+}
+
+table tbody td:nth-of-type(1){
+	color: red;
+}
+
+table tbody td:nth-of-type(3){
+	color: blue;
+}
+
+table > tfoot{
+	background-color: white;
+	empty-cells: show;			
+}
+
+/* TABLE END */
+
+
+
+
+/* DIV BEGIN */
+
+div.outer-content{
+	height: 50px;
+	width: 75%;
+	background-color: #ffc0cb;
+	position: relative;
+}
+
+div.inner-content{
+	height: 20px;
+	width: 75%;
+	text-align: center;
+	background-color: #add8e6;
+	margin: auto;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+}
+
+/* DIV END*/
