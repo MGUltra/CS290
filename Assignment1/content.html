@@ -1,0 +1,217 @@
+<!-- 
+Name: Matthew Garner
+Date: 10/9/16
+Assignment: CS290 - HTML/CSS Assignment 
+-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<meta charset="UTF-8">
+  <title>Week 1 Assignment</title>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	</head>
+
+	<body>
+	
+	<!-- TABLE BEGIN -->
+		
+		<table>
+			<caption>Who wins? Cell content indicates the status of the row entry.</caption>
+	
+			<thead>
+			<tr>
+				<th></th>
+				<th>Godzilla</th>
+				<th>Batman</th>
+				<th>Shaq</th>
+				<th>Aaron Carter</th>
+				<th>Abe Lincoln</th>
+				
+			<tbody>
+			<tr>
+				<th>Godzilla</th>
+				<td>N/A</td>
+				<td>Minor Loss</td>
+				<td>Loss</td>
+				<td>Unknown</td>
+				<td>Unknown</td>
+			</tr>
+			
+			<tr>
+				<th>Batman</th>
+				<td>Minor Win</td>
+				<td>N/A</td>
+				<td>Total Victory</td>
+				<td>Total Victory</td>
+				<td>Total Loss</td>
+			</tr>
+			
+			<tr>
+				<th>Shaq</th>
+				<td>Win</td>
+				<td>Total Loss</td>
+				<td>N/A</td>
+				<td>Minor Loss</td>
+				<td>Unknown</td>
+			</tr>
+			
+			<tr>
+				<th>Aaron Carter</th>
+				<td>Unknown</td>
+				<td>Total Loss</td>
+				<td>Minor Win</td>
+				<td>N/A</td>
+				<td>Unknown</td>
+			</tr>
+			
+			<tr>
+				<th>Abe Lincoln</th>
+				<td>Unknown</td>
+				<td>Total Victory</td>
+				<td>Unknown</td>
+				<td>Unknown</td>
+				<td>N/A</td>
+			</tr>
+				
+			<tfoot>
+			
+			<tr>
+				<td colspan="2">Footer 1</td>
+				<td colspan="4">Footer 2</td>
+			</tr>
+				
+		</table>
+	
+	<!-- TABLE END -->
+	
+	
+	
+	<!-- LIST BEGIN -->
+	
+	<dl>
+		<dt>Best Language</dt>
+		<dd>Python</dd>
+		<dt>Wackyist Language</dt>
+		<dd>Haskell</dd>
+		<dt>SEGFAULTiest language</dt>
+		<dd>C</dd>
+	</dl>
+	
+	<!-- LIST END -->
+	
+	
+	
+	<!-- DIV BEGIN -->
+	
+	<div class="outer-content">
+		<p>
+			<div class="inner-content">
+			Here is some content
+			</div>
+		</p>
+	</div>
+	
+	<!-- DIV END -->
+	
+	
+	
+	<!-- GET FORM BEGIN -->
+	
+	<form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+	<fieldset>
+	<legend>Some GET Data</legend>
+	
+		<br />
+		<fieldset>
+		<label>Text here:
+			<input type="text" name="text_input">
+		</label>
+		</fieldset>
+	
+		<br />
+		<fieldset>
+		<label>Number here:
+			<input type="number" name="numerical_input">
+		</label>
+		</fieldset>
+		
+		<br />
+		<fieldset>
+		<label>Password here:
+			<input type="password" name="password_input">
+		</label>
+		</fieldset>
+		
+		<br />
+		<fieldset>
+		<label>Select between:
+		<br /><br />
+		<label>
+			<input type="radio" name="candy" value="Snickers" />Snickers</label><br /><br />
+		<label>
+			<input type="radio" name="candy" value="Skittles" />Skittles</label><br /><br />
+		<label>
+			<input type="radio" name="candy" value="Mentos" />Mentos</label><br /><br />
+			<input type="submit" value="Submit" />
+		</fieldset>
+		
+	</fieldset>
+	</form>
+	<br />
+	
+	<!-- GET FORM END -->
+	
+	
+	
+	<!-- POST FORM BEGIN -->
+	
+	<form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="post">
+	<fieldset>
+	<legend>Some POST Data</legend>
+	
+		<br />
+		<fieldset>
+		<label>Text here:
+			<input type="text" name="text_input">
+		</label>
+		</fieldset>
+	
+		<br />
+		<fieldset>
+		<label>Number here:
+			<input type="number" name="numerical_input">
+		</label>
+		</fieldset>
+		
+		<br />
+		<fieldset>
+		<label>Password here:
+			<input type="password" name="password_input">
+		</label>
+		</fieldset>
+		
+		<br />
+		<fieldset>
+		<label>Select between:
+		<br /><br />
+		<label>
+			<input type="radio" name="candy" value="Snickers" />Snickers</label><br /><br />
+		<label>
+			<input type="radio" name="candy" value="Skittles" />Skittles</label><br /><br />
+		<label>
+			<input type="radio" name="candy" value="Mentos" />Mentos</label><br /><br />
+			<input type="submit" value="Submit" />
+		</fieldset>
+		
+	</fieldset>
+	</form>
+	
+  <!-- POST FORM END -->
+	
+	
+	
+	</body>
+
+</html>
