@@ -1,3 +1,16 @@
+/***************************************************************
+* Name: Matthew Garner
+*	Date: 10/23/2016
+*	Class: CS290 - Web Development
+* HW Assignment: Higher-Order Functions and Objects
+* Description: This program sorts the objects of the Automobile
+* class by their year, make, and type. This is accomplished with
+* one sort function that takes a camparator function along with
+*	the array of objects as parameters.
+****************************************************************/
+
+
+
 function Automobile( year, make, model, type ){
     this.year = year; //integer (ex. 2001, 1995)
     this.make = make; //string (ex. Honda, Ford)
