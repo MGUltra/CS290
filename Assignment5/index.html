@@ -1,0 +1,202 @@
+<!-- Name: Matthew Garner -->
+<!-- Date: 11/6/2016 -->
+<!-- Class: CS290 - Web Development -->
+<!-- HW Assignment: AJAX Interactions -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var apiKey = 'fa7d80c48643dfadde2cced1b1be6ca1';
+
+      document.addEventListener('DOMContentLoaded', bindButtons);
+
+			function bindButtons(){
+			
+				// START Open Weather Map asynchronous GET
+			
+        document.getElementById('zipOrCitySubmit').addEventListener('click', function(event){
+				
+          var weatherInfo = new XMLHttpRequest();
+					
+					var inputValue = document.getElementById('zipOrCity').value;
+					
+					
+					// Added to test if input is a zip code or city name. used isNaN() to test if input is a number.
+					
+					if(isNaN(inputValue) == false)
+					{
+						inputValue = 'q=' + inputValue;
+					}
+					else
+					{
+						inputValue = 'zip=' + inputValue;
+					}
+					
+					
+					// Build URL and then use in .open
+					
+					var URL = "http://api.openweathermap.org/data/2.5/weather?q=" + inputValue + "&appid=" + apiKey + '&units=metric';
+					
+          weatherInfo.open('GET', URL, true);
+					
+					
+					
+					
+					// event listener for load added to asynchronous call
+					
+					weatherInfo.addEventListener('load', function() {
+						if(weatherInfo.status >= 200 && weatherInfo.status < 400)
+						{
+						
+							var response = JSON.parse(weatherInfo.responseText);
+							
+							console.log(response);
+							
+							document.getElementById("currentCity").textContent = response.name;
+						
+							document.getElementById("currentTemp").textContent = response.main.temp;
+						}
+						else
+						{
+							console.log("Error In Network Request: " + weatherInfo.statusText);
+						}
+					});
+					
+					
+					// send after load event listener
+					weatherInfo.send(null);
+					
+					
+					/* This was previously from the synchronous request
+					  
+					console.log(JSON.parse(weatherInfo.responseText));
+					
+          var response = JSON.parse(weatherInfo.responseText);
+					
+					console.log(response);
+					
+					document.getElementById("currentCity").textContent = response.name;
+					
+					document.getElementById("currentTemp").textContent = response.main.temp;
+          
+					*/
+					
+					
+					event.preventDefault();
+        
+				});
+				
+				// END Open Weather Map asynchronous GET
+				
+				
+				
+				// START httpbin asynchronous POST
+				
+				document.getElementById('httpbinSubmit').addEventListener('click', function(event){
+				
+					var request = new XMLHttpRequest();
+					
+					// build payload from "Asynchronous Requests" in week 6 content
+					var requestPayload = {favoriteAnimal:null};
+					
+					requestPayload.favoriteAnimal = document.getElementById("httpbinInput").value;
+					
+					
+					request.open('POST', 'http://httpbin.org/post', true);
+					
+					// add header to let server know to expect JSON object
+					request.setRequestHeader('Content-Type', 'application/json');
+					
+					// add load event listener to make asynchronous call 
+					request.addEventListener('load', function() {
+						if(request.status >= 200 && request.status < 400)
+						{
+							
+							var httpbinOutput = JSON.parse(request.responseText);
+							
+							console.log(httpbinOutput);
+							
+							// data field contains a string. Parse string into JSON object
+							var dataField = JSON.parse(httpbinOutput.data);
+							
+							console.log(dataField);
+							
+							document.getElementById('httpbinResponse').textContent = dataField.favoriteAnimal;
+							
+							
+							/* 
+							Tried to just display the favorite Animal, but I couldn't get it to work, so I just
+							displayed everything that was sent back and then worked my way back from there.
+							*/
+							
+							//document.getElementById('httpbinResponse').textContent = httpbinOutput.json.favoriteAnimal.value;
+							
+							//document.getElementById('httpbinResponse').textContent = request.responseText;
+							
+						}
+						else
+						{
+							console.log("Error In Network Request: " + request.statusText);
+						}
+					
+					});
+					
+					// use stringify to send string version of JSON to server
+					request.send(JSON.stringify(requestPayload));
+					
+					event.preventDefault();
+					
+				});
+				
+				// END httpbin asynchronous POST
+      }
+			
+			
+			
+
+    </script>
+  </head>
+  <body>
+		
+		<!-- Form 1: Asynchronous GET request to Open Weather Map -->
+    <h2>Get Temperature from Open Weather Map</h2>
+		
+		<form>
+      <fieldset>
+        <legend>GET Open Weather Map</legend>
+        <input type="text" name="zipOrCity" id="zipOrCity" value="Enter City or Zip">
+        <input type="submit" id="zipOrCitySubmit">
+      </fieldset>
+    </form>
+		
+    <div>
+      <h3>Local Temperature</h3>
+      <ul>
+        <li><span>City Name: </span><span id="currentCity"></span></li>
+        <li><span>Temp in C: </span><span id="currentTemp"></span></li>
+      </ul>
+    </div>
+		
+		<!-- Form 2: Asynchronous POST request to httpbin.org/post -->
+		<h2>Get a response from httpbin</h2>
+		
+		<form>
+      <fieldset>
+        <legend>POST httpbin</legend> 
+        <input type="text" name="httpbinInput" id="httpbinInput" value="Enter Favorite Animal">
+        <input type="submit" id="httpbinSubmit">
+      </fieldset>
+    </form>
+		
+    <div>
+      <h3>httpbin Response</h3>
+			<ul>
+        <li><span>Favorite Animal: </span><span id="httpbinResponse"></span></li>
+      </ul>
+    </div>
+		
+		
+  </body>
+</html>
